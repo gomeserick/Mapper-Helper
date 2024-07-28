@@ -1,0 +1,28 @@
+<div class="p-0 m-0 font-medium text-sm">
+    <div class="grid grid-cols-11 gap-2" style="min-height: 100vh; width: 100vw;max-height: 100vh;">
+        <div></div>
+        <div class="grid gap-1 col-span-4 grid-rows-4" style="max-height: inherit;">
+            <div class="content-end">
+                <label class="block text-sm text-slate-500 mb-2">Selecione um CSV</label>
+                <input type="file" accept=".csv" class="block w-full text-sm text-slate-500
+                file:mr-4 file:py-2 file:px-4 mb-6 
+                file:rounded-lg file:border-1 file:border-action
+                 file:bg-bg-dark file:text-[#666]
+              " (change)="onFileSelected($event, 1)">
+            </div>
+            <app-data-grid [data]="mainData" class="grid row-span-4 grid-rows-4"></app-data-grid>
+        </div>
+        <div></div>
+        <div class="grid gap-1 col-span-4 grid-rows-4" style="max-height: inherit;">
+            <div class="content-end">
+                <label class="block text-sm text-slate-500 mb-2">Selecione um CSV</label>
+                <input type="file" accept=".csv" class="block w-full text-sm text-slate-500
+                file:mr-4 file:py-2 file:px-4 mb-6 
+                file:rounded-lg file:border-1 file:border-action
+                 file:bg-bg-dark file:text-[#666]
+              " (change)="onFileSelected($event, 2)">
+            </div>
+            <app-data-grid [data]="secondData" class="grid row-span-4 grid-rows-4"></app-data-grid>
+        </div>
+        <div></div>
+    </div>

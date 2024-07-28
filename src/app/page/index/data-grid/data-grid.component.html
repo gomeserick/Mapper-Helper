@@ -1,0 +1,18 @@
+
+<div class="grid gap-1 grid-rows-1 row-span-4 mb-6" style="max-height: 100%;">
+    <div class="container border rounded-xl p-5" style="max-height: inherit;">
+        <app-select-button></app-select-button>
+        <div class="overflow-auto rounded-xl shadow-lg shadow-[#111111]" style="max-height: inherit;">
+            <table *ngIf="columnsToDisplay.length > 0" mat-table [dataSource]="data" class="bg-bg-dark">
+
+                <ng-container *ngFor="let column of columnsToDisplay" [matColumnDef]="column">
+                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                </ng-container>
+
+                <tr class="border-b-2 border-[#aaaaaa]"  mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+                <tr class="border-b-2 border-[#aaaaaa] hover:bg-bg-hover-dark cursor-pointer" (click)="dataSelected(row)" mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+            </table>
+        </div>
+    </div>
+</div>

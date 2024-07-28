@@ -1,0 +1,33 @@
+<div>
+    <label id="listbox-label" class="block text-sm font-medium leading-6 text-gray-900">Assigned to</label>
+    <div class="relative mt-2">
+        <button type="button" class="relative w-full cursor-default rounded-md 
+        bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 
+        shadow-sm ring-1 ring-inset ring-gray-300 
+        focus:outline-none focus:ring-2 focus:ring-indigo-500 
+        sm:text-sm sm:leading-6" name="button" (click)="toggleSelected($event)" aria-haspopup="listbox" aria-label="select button"
+            aria-expanded="false" aria-controls="select-dropdown" aria-labelledby="listbox-label">
+            <span class="flex items-center h-5">
+                <span class="ml-3 block truncate">{{selected}}</span>
+            </span>
+            <span class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                <img src="/assets/svg/arrow-down-up-svgrepo-com.svg" class="h-5 w-5 text-[#111111]" />
+            </span>
+        </button>
+        <ul id="select-dropdown" [attr.data-name]="name"
+            class="select-dropdown absolute z-10 mt-1 max-h-56 min-h-8 w-full 
+            overflow-auto rounded-md bg-white p-0 text-base shadow-lg ring-1 
+            ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            tabindex="-1" role="listbox" aria-labelledby="listbox-label">
+            <li *ngFor="let item of data; let i = index" (click)="onSelection($event, item)"
+                class="relative cursor-default py-2 select-none p-0 text-gray-900" [id]="item" role="option">
+                <span class="absolute inset-y-0 ml-2 left-0 flex items-center pr-4 text-indigo-600">
+                    <img src="./../../../assets/svg/dot-small-svgrepo-com.svg" class="h-5 w-5" *ngIf="selected === item" />
+                </span>
+                <div class="flex items-center">
+                    <span class="ml-8 block truncate font-normal">{{item}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
